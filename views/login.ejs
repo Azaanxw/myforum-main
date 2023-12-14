@@ -1,0 +1,36 @@
+ <!-- LOGIN PAGE WHERE THE USER CAN LOGIN AFTER CREATING AN ACCOUNT -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="authentication.css">
+    <title>Forum Login</title>
+
+</head>
+<body>
+
+    <h1>Welcome to the forum!</h1>
+
+    <!-- Login form -->
+    <form action="/login" method="post">
+
+        <!-- Username -->
+        <label for="username"><img src="images/username_icon.png" alt="username_icon">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <!-- Password -->
+        <label for="password"><img src="images/password_icon.png" alt="password_icon">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <!-- Submit Button -->
+        <button type="submit">Login</button>
+        
+    </form>
+
+    <!-- Register link -->
+    <a href="/register">No account? Register here</a>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+/* CSS FOR REGISTER PAGE AND LOGIN PAGE */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #333; /* Dark background color */
+    color: #fff; /* Light text color */
+    margin: 0;
+    padding: 20px; /* Padding to create space around the content*/
+}
+
+.container {
+    background-color: #555; /* Darker background color for the container */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Lighter box shadow */
+    padding: 30px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px; 
+    margin: 0 auto; /* Centers the container horizontally */
+}
+
+h1 {
+    color: #fff; /* Light text color */
+    text-align: center; /* Centers the text within the h1 element */
+    margin-bottom: 30px; /* Increased margin at the bottom of the h1 for separation */
+    font-size: 30px; /* Increased font size */
+}
+h1 {
+    background: linear-gradient(to right, #fff, #ddd);
+    background-clip: text; /* Clip text to the background gradient */
+    color: transparent; /* Make text transparent to reveal the background gradient */
+}
+
+
+h1 {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* Adds a small shadow for the text */
+}
+
+form {
+    display: grid; /* Puts the display as grid */
+    justify-content: center; /* Centers the content horizontally */
+}
+
+label {
+    font-weight: bold;
+    color: #fff; /* Light text color */
+    padding-bottom: 15px; /* Gives more space in between each label and its input box */
+}
+
+label img {
+    margin-right: 5px; /* Adds some space between the image and text */
+    width: 15px; /* Makes the icons small and all are the same size */
+    height: 15px;
+    
+}
+input {
+    width: 100%;
+    padding: 10px; 
+    box-sizing: border-box; /* Sizing now includes the padding and border */
+    border: 1px solid #888; /* Darker border color */
+    border-radius: 4px; /* Original border-radius */
+    font-size: 16px; /* Original font size */
+    background-color: #444; /* Darker background color for input */
+    color: #fff; /* Light text color */
+    margin-bottom: 20px; /* Increased margin-bottom to create more space between input boxes */
+}
+
+button {
+    background-color: #4CAF50; /* Light green color for register button*/
+    color: #fff; /* Light text color */
+    padding: 20px; /* Increased padding */
+    border: none;
+    border-radius: 6px; /* Increased border-radius */
+    cursor: pointer;
+    font-size: 18px; /* Increased font size */
+    width: 100%; /* Make the button fill the width of the container */
+}
+
+button:hover { /* Changes color of button when hovered over with the mouse */
+    background-color: #45a049;
+}
+
+/* Styling for the link */
+a {
+    display: block; 
+    text-align: center; /* Center the link text */
+    text-decoration: none; /* Removes default underline */
+    color: #fff; /* White color for the link text */
+    font-size: 16px; 
+    margin-top: 10px; /* Adds some space between the login button and the link */
+    transition: color 0.3s, text-decoration 0.3s; /* Creates smooth transition for color and text-decoration changes */
+}
+
+/* Makes color darker on hover and underlines text  */
+a:hover {
+    color: #ddd; /* Darker color on hover */
+    text-decoration: underline; /* Underlines text on hover */
+}

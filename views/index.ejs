@@ -1,3 +1,4 @@
+ <!-- HOME PAGE WHICH LINKS ALL THE OTHER PAGES -->
 <!doctype html>
 <html>
   <head>
@@ -5,8 +6,16 @@
     <link rel="stylesheet"  type="text/css" href="main.css" />
   </head>
   <body>
-    <h1>Welcome to My Forum</h1>
+    <h1>Welcome to the Home page!</h1>
+
+    <!-- LISTS ALL THE PAGES -->
+    <div class="other_pages">
+    <p><a href="about">Create new post</a></p>
     <p><a href="about">About</a></p>
     <p><a href="listposts">List posts</a></p>
+    </div>
+    <form action="/logout" method="get">
+      <button type="submit">Logout</button>
+  </form>
   </body>
 </html>

@@ -1,0 +1,17 @@
+Firstly,you need to install all these modules:
+
+- node
+- express
+- ejs
+- mysql
+- express-session
+- body-parser
+- crypto
+
+This can be done using npm install module_name
+
+------------------------------------------------
+
+After all modules are installed, run index.js!
+
+(You need to have an account and be logged in to be able to access the other pages)

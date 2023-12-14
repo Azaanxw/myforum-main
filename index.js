@@ -1,25 +1,40 @@
 // Import the modules we need
 var express = require ('express')
 var ejs = require('ejs')
+var session = require('express-session');
 var bodyParser= require ('body-parser')
 const mysql = require('mysql');
+var crypto = require('crypto');
 
 // Create the express application object
 const app = express()
 const port = 8000
 app.use(bodyParser.urlencoded({ extended: true }))
 
-// Set up css
+// Creates the classified session
+var secretSessionKey = crypto.randomBytes(40).toString('hex');
+
+// Configuration for the session for login
+app.use(session({
+    secret: secretSessionKey,
+    resave: true, // session is saved
+    cookie: {
+        maxAge: 1*24*60*1000 // session is valid for 1 day
+    },
+    saveUninitialized: true // ensures new sessions are saved
+}))
+
+// Set up the css and the images to be used 
 app.use(express.static(__dirname + '/public'));
 
 // Define the database connection
-
 const db = mysql.createConnection ({
     host: 'localhost',
     user: 'appuser',
     password: 'app2027',
     database: 'forumapp'
 });
+
 // Connect to the database
 db.connect((err) => {
     if (err) {
@@ -29,6 +44,8 @@ db.connect((err) => {
 });
 global.db = db;
 
+// Serve static files from the "public" directory
+app.use(express.static(__dirname + '/public'));
 
 // Set the directory where Express will pick up HTML files
 // __dirname will get the current directory
