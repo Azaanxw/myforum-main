@@ -1,0 +1,48 @@
+<!-- CREATE POST PAGE -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create a Post</title>
+    <link rel="stylesheet" type="text/css" href="/authentication.css" />
+  </head>
+  <body>
+    <!-- Display success message -->
+    <% if (successMessage && successMessage.length > 0) { %>
+    <div class="alert-success"><%= successMessage %></div>
+    <% } %>
+
+    <!-- Display error message -->
+    <% if (errorMessage && errorMessage.length > 0) { %>
+    <div class="alert"><%= errorMessage %></div>
+    <% } %>
+
+    <h1>Create a post below:</h1>
+    <!-- Checks to see if user belongs to at least 1 topic and if they do, it displays all their topics in a dropdown menu allowing them to select what topic they wanna post on -->
+    <% if (userTopics.length > 0) { %>
+    <form action="/create-post" method="post">
+      <label for="topic">Topic:</label>
+      <select id="topic" name="topic" required>
+        <% userTopics.forEach(topic => { %>
+        <option value="<%= topic.topic_id %>"><%= topic.topic_name %></option>
+        <% }) %>
+      </select>
+
+      <label for="text">Text:</label>
+      <textarea id="text" name="text" rows="4" required></textarea>
+
+      <button type="submit">Create Post</button>
+    </form>
+
+    <% } else { %> <!-- Tells the user to join a topic if they aren't currently in any-->
+    <p class="topic-error">You must be in at least 1 topic in order to post.</p>
+    <a class="join-topic-link" href="/list-topics">Join a topic now!</a>
+    <% } %>
+
+    <a href="/" class="redirect-link">Return to home</a>
+
+    <form action="/logout" method="get">
+      <button class="logout" type="submit">Logout</button>
+    </form>
+
+  </body>
+</html>

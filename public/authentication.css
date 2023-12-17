@@ -1,4 +1,4 @@
-/* CSS FOR REGISTER PAGE AND LOGIN PAGE */
+/* CSS */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #333; /* Dark background color */
@@ -47,8 +47,8 @@ label {
 
 label img {
     margin-right: 5px; /* Adds some space between the image and text */
-    width: 15px; /* Makes the icons small and all are the same size */
-    height: 15px;
+    width: 25px; /* Makes the icons small and all are the same size */
+    height: 25px;
     
 }
 input {
@@ -64,33 +64,526 @@ input {
 }
 
 button {
-    background-color: #4CAF50; /* Light green color for register button*/
+    background-color: #237615; /* Light green color for register button*/
     color: #fff; /* Light text color */
-    padding: 20px; /* Increased padding */
+    padding: 10px; /* Increased padding */
     border: none;
     border-radius: 6px; /* Increased border-radius */
     cursor: pointer;
-    font-size: 18px; /* Increased font size */
+    font-size: 20px; /* Increased font size */
     width: 100%; /* Make the button fill the width of the container */
 }
 
 button:hover { /* Changes color of button when hovered over with the mouse */
-    background-color: #45a049;
+    background-color: #329437;
 }
 
 /* Styling for the link */
 a {
-    display: block; 
+    display: block; /* Change display to block */
     text-align: center; /* Center the link text */
     text-decoration: none; /* Removes default underline */
     color: #fff; /* White color for the link text */
-    font-size: 16px; 
-    margin-top: 10px; /* Adds some space between the login button and the link */
-    transition: color 0.3s, text-decoration 0.3s; /* Creates smooth transition for color and text-decoration changes */
+    font-size: 16px;
+    padding: 5px 10px; /* Reduce padding to the top and bottom (5px) and left and right (10px) */
+    margin: 5px auto; /* Reduce margin for centering horizontally */
+    transition: color 0.3s, text-decoration 0.3s; /* Creates a smooth transition for color and text-decoration changes */
+    width: 150px;
 }
+
+/* Doesn't shrink the other links that are used in login and register pages */
+.redirect-link {
+    padding-bottom: 20px; /* Added padding at the bottom so user doesn't accidentally log out */
+    width:auto; 
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #bac4d7;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}    
+
 
 /* Makes color darker on hover and underlines text  */
 a:hover {
     color: #ddd; /* Darker color on hover */
     text-decoration: underline; /* Underlines text on hover */
+}
+
+/* Alert message boxes */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px; /* Rounded corners */
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #9f1e14; /* Dark red background color */
+    color: #f3b7b7; /* light red color */
+    border: 2px solid #BF3938; /* Border color for consistency */
+}
+/* Alert message when no error */
+
+.alert-success {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px; /* Rounded corners */
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #237615; /* Light red background color */
+    color: #53d9a4; /* Dark red text color */
+    border: 1px solid #36AB84; /* Border color for consistency */
+}
+
+/* LOGOUT BUTTON */
+
+.logout {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 9px; /* Decreased padding */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px; /* Decreased font size */
+    width: auto; /* Auto width to fit content */
+}
+
+/* Link Container */
+.link-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center vertically */
+    background-color: #313030; /* Darker background color for the link container */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Lighter box shadow */
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px auto; /* Updated margin for centering horizontally */
+    width: 300px; /* Adjust the width as needed */
+    margin-bottom: 20px; /* Add margin to the bottom */
+}
+
+.link-container a {
+    display: flex;
+    text-align: center;
+    padding: 10px;
+    flex-direction: row;
+    align-content: stretch;
+    justify-content: flex-start;
+    align-items:center;
+}
+.link-container a:hover {
+    color: #ddd;
+    text-decoration: underline;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Added box-shadow for hover state */
+    border-radius: 12px; /* Adjust as needed */
+}
+
+.link-container a img {
+    padding-right: 20px;
+    width: 40px;
+    height: 40px;
+}
+/* ABOUT ME PAGE*/
+.about-container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #595959;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        text-align: center;
+    
+}
+.about-container h2 {
+        font-size: 35px;
+        color: #dce0e6;
+        border-bottom: 2px solid #c7d2e3;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+}
+.about-container p {
+    font-size: 15px;
+line-height: 1.6;
+    margin-bottom: 15px;
+    color: #efeeee;
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+/* Optional: Add a border under the h1 for a decorative touch */
+h1::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 150px;
+    background-color: #d1d6dc;
+    margin: 15px auto;
+}
+
+.features-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.features-list li {
+    margin-bottom: 15px;
+}
+
+.features-list li::before {
+    content: "\2022"; /* Unicode character for a bullet point */
+    color: #c6cdd9;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* CREATE POST CSS */
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #888;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #444;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #888;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #444;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+select option {
+    background-color: #555; /* Darker background color for options */
+    color: #fff; /* Light text color for options */
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Style for the options within the select dropdown */
+select option {
+    background-color: #555; /* Darker background color for options */
+    color: #fff; /* Light text color for options */
+    padding: 10px;
+    font-size: 16px;
+}
+
+
+/* LIST-POSTS CSS */
+.post-container {
+    background-color: #555; /* Darker background color for each post */
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.post-container p {
+    margin: 10px 0;
+    color: #fff; /* Light text color for post details */
+}
+
+.post-title {
+    color: #fff; /* Light text color */
+    text-align: center; /* Centers the text within the h1 element */
+    margin-bottom: 30px; /* Increased margin at the bottom of the h1 for separation */
+    font-size: 30px; /* Increased font size */
+    background: linear-gradient(to right, #fff, #ddd);
+    background-clip: text; /* Clip text to the background gradient */
+    color: transparent; /* Make text transparent to reveal the background gradient */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* Adds a small shadow for the text */
+}
+
+.post-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.post-item {
+    background-color: #555; /* Darker background color for each post */
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.post-item p {
+    margin: 10px 0;
+    color: #fff; /* Light text color for post details */
+}
+
+
+/* authentication.css */
+
+/* ... (your existing styles) */
+
+/* Style for the post list */
+.post-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Style for each post item */
+.post-item {
+    display: flex; /* Use flexbox to align items horizontally */
+  align-items: center; /* Center items vertically */
+  margin-bottom: 20px; /* Add some space between each post item */
+    background-color: #555; /* Darker background color for each post item */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Lighter box shadow */
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 20px;
+    align-items: center;
+    flex-direction:column;
+}
+
+/* Style for the header (topic) of each post item */
+.post-header {
+    color: #fff; /* Light text color */
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Additional styling for other information in each post item */
+.post-info {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* VIEW TOPICS CSS */
+
+/* Style for the header (topic) of each post item */
+.post-header {
+    color: #fff; /* Light text color */
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Additional styling for other information in each post item */
+.post-info {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.topic-image {
+    width: 40px; /* Adjust the width as needed */
+    height: 40px; /* Adjust the height as needed */
+    margin-right: 10px; /* Add some space between the image and topic name */
+    border-radius: 50%; /* Optional: Makes the image round */
+    object-fit: cover; /* Ensures the image retains its aspect ratio */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Optional: Adds a subtle shadow effect */
+  }
+
+.topic-error {
+    font-size: 20px;
+    color: #fff; /* Light text color */
+    margin-bottom: 10px; /* Adjust margin as needed */
+    text-align: center;
+}
+
+/* CSS */
+/* ... (your existing styles) */
+
+/* Style for the error message when user has no topics */
+.topic-error {
+    margin-bottom: 20px; /* Add some space below the error message */
+    color: #ff6666; /* Light red color for error message */
+    font-size: 18px; /* Increased font size for emphasis */
+    text-align: center; /* Center the text */
+}
+
+/* Style for the link to join a topic */
+.join-topic-link {
+    display: block; /* Change display to block */
+    text-align: center; /* Center the link text */
+    text-decoration: none; /* Removes default underline */
+    color: #fff; /* White color for the link text */
+    font-size: 16px;
+    padding: 5px 10px; /* Reduce padding to the top and bottom (5px) and left and right (10px) */
+    margin: 5px auto; /* Reduce margin for centering horizontally */
+    transition: color 0.3s, text-decoration 0.3s; /* Creates a smooth transition for color and text-decoration changes */
+    width: 150px;
+    background-color: #9a360a; /* Light green color for the link */
+    border-radius: 6px; /* Rounded corners for the link */
+}
+
+/* Styling when hovering over the link */
+.join-topic-link:hover {
+    background-color: #c00b0b; /* Darker green color on hover */
+    color: #ddd; /* Darker color on hover */
+    text-decoration: underline; /* Underlines text on hover */
+}
+.user-list {
+    display: grid;
+    width:900px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .user-container {
+    background-color: #555;
+    border-radius: 8px;
+    text-align: center;
+
+  }
+  .user-details {
+    color: #fff;
+    margin-top: 10px;
+  }
+
+  .user-container img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+
+.user-list-wrapper {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    padding-bottom: 80px;
+    align-items: flex-start;
+  }
+  .user-title {
+    margin-bottom: 0; /* Add this line to remove the bottom margin */
+  }
+
+  .user-container:hover {
+    background-color: #666;
+    color: #ddd; /* Darker color on hover */
+}
+
+.post-list {
+    list-style: none;
+    padding: 0;
+}
+
+.post-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #d6d2d229;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.post-item img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+.post-header {
+    font-size: 25px;
+    color: #dee1e6;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.post-header img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.post-info {
+    margin: 5px 0;
+}
+
+.post-info strong {
+    margin-right: 5px;
+}
+/* USER PROFILE CSS */ 
+/* Your existing styles... */
+
+/* Additional styles for the user profile page */
+.user-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.user-section {
+    display: flex;
+    align-items: center;
+}
+
+.user-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    margin-right: 20px;
+}
+
+.user-info {
+    text-align: left;
+}
+
+.user-info strong {
+    padding-top:10px;
+    color: #fff;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.user-stats {
+    text-align: left;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.user-stats strong {
+    padding-left: 10px;
+    color: #fff;
+    margin-right: 20px;
+    display: inline-block;
+}
+
+/* Add margin to the left of the user icon */
+.user-section {
+    margin-left: 20px;
+}
+
+/* Optional: Add box shadow to user details */
+.user-details {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #555;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.other-links {
+    padding-top: 110px;
 }

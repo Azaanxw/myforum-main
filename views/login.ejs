@@ -2,27 +2,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="authentication.css">
-    <title>Forum Login</title>
+    <link rel="stylesheet" type="text/css" href="/authentication.css">
+    <title>TopicHub login</title>
+    <script>
 
+        // Function to hide the flash message after 3500 milliseconds (3.5 seconds)
+        setTimeout(function(){
+          var alertElement = document.querySelector('.alert-success');
+          if (alertElement) {
+            alertElement.style.display = 'none';
+          }
+        }, 3500);
+        
+      </script>
 </head>
 <body>
 
-    <h1>Welcome to the forum!</h1>
+    <h1>TopicHub</h1>
+
+     <!-- Display success message -->
+     <% if (successMessage && successMessage.length > 0) { %>
+        <div class="alert-success">
+            <%= successMessage %>
+        </div>
+    <% } %>
+
+    <!-- Display error message -->
+    <% if (errorMessage && errorMessage.length > 0) { %>
+        <div class="alert">
+            <%= errorMessage %>
+        </div>
+    <% } %>
 
     <!-- Login form -->
     <form action="/login" method="post">
 
         <!-- Username -->
         <label for="username"><img src="images/username_icon.png" alt="username_icon">Username:</label>
-        <input type="text" id="username" name="username" required>
+        <input type="text" id="username" name="username" value="<%= username %>"  required>
 
         <!-- Password -->
         <label for="password"><img src="images/password_icon.png" alt="password_icon">Password:</label>
-        <input type="password" id="password" name="password" required>
+        <input type="password" id="password" name="password"  value="<%= password %>" required>
 
         <!-- Submit Button -->
         <button type="submit">Login</button>
@@ -30,7 +53,7 @@
     </form>
 
     <!-- Register link -->
-    <a href="/register">No account? Register here</a>
+    <a href="/register" class="redirect-link" >No account? Register here</a>
 
 </body>
 </html>

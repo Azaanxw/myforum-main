@@ -7,7 +7,7 @@ Firstly,you need to install all these modules:
 - express-session
 - body-parser
 - crypto
-
+- connect-flash
 This can be done using npm install module_name
 
 ------------------------------------------------

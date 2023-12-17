@@ -1,0 +1,42 @@
+<!-- LISTS ALL THE POSTS AND DISPLAYS THEM -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TopicHub User Profile</title>
+    <link rel="stylesheet" type="text/css" href="/authentication.css" />
+  </head>
+  <body>
+    <div class="user-container">
+      <h1>User Profile</h1>
+
+      <!-- Displays user details -->
+      <div class="user-details">
+
+        <div class="user-section">
+          <img src="/images/user_icon.png" alt="User Icon" class="user-icon" />
+          <div class="user-info">
+            <strong>Username:</strong> <%= user.username %><br />
+            <strong>User ID:</strong> <%= user.user_id %><br />
+            <strong>Full Name:</strong> <%= user.first_name + ' ' +
+            user.last_name %><br />
+          </div>
+        </div>
+        <div class="user-stats">
+          <strong>Total Credits:</strong> <%= credits %>
+          <strong>Total Posts:</strong> <%= postCount %>
+        </div>
+
+      </div>
+
+      <a href="/" class="redirect-link">Return to Home</a>
+
+      <form action="/logout" method="get">
+        <button class="logout" type="submit">Logout</button>
+      </form>
+
+    </div>
+
+  </body>
+</html>

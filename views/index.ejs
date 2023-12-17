@@ -1,21 +1,67 @@
- <!-- HOME PAGE WHICH LINKS ALL THE OTHER PAGES -->
-<!doctype html>
+<!-- HOME PAGE WHICH LINKS ALL THE OTHER PAGES -->
+<!DOCTYPE html>
 <html>
   <head>
-    <title>Welcome to My Forum</title>
-    <link rel="stylesheet"  type="text/css" href="main.css" />
+    <title>TopicHub</title>
+    <link rel="stylesheet" type="text/css" href="/authentication.css" />
+    <script>
+
+      // Function to hide the flash message after 3500 milliseconds (3.5 seconds)
+      setTimeout(function () {
+        var alertElement = document.querySelector(".alert-success");
+        if (alertElement) {
+          alertElement.style.display = "none";
+        }
+      }, 3500);
+
+    </script>
   </head>
   <body>
-    <h1>Welcome to the Home page!</h1>
+    <!-- Display success message -->
+    <% if (successMessage && successMessage.length > 0) { %>
+    <div class="alert-success"><%= successMessage %></div>
+    <% } %>
 
+    <!-- Display error message -->
+    <% if (errorMessage && errorMessage.length > 0) { %>
+    <div class="alert"><%= errorMessage %></div>
+    <% } %>
+
+    <h1>Welcome to the TopicHub app!</h1>
     <!-- LISTS ALL THE PAGES -->
-    <div class="other_pages">
-    <p><a href="about">Create new post</a></p>
-    <p><a href="about">About</a></p>
-    <p><a href="listposts">List posts</a></p>
+    <div class="link-container">
+      <p>
+        <a href="create-post"
+          ><img src="/images/post_icon.png" alt="post_icon" />Create post</a
+        >
+      </p>
+      <p>
+        <a href="about"
+          ><img src="/images/about_icon.png" alt="about_icon" />About</a
+        >
+      </p>
+      <p>
+        <a href="list-topics"
+          ><img src="/images/topic_icon.png" alt="topic_icon" />List topics</a
+        >
+      </p>
+      <p>
+        <a href="list-posts"
+          ><img src="/images/search_post_icon.png" alt="list_post_icon" />List
+          posts</a
+        >
+      </p>
+      <p>
+        <a href="list-users"
+          ><img src="/images/search_user_icon.png" alt="list_user_icon" />List
+          users</a
+        >
+      </p>
     </div>
+
     <form action="/logout" method="get">
-      <button type="submit">Logout</button>
-  </form>
+      <button class="logout" type="submit">Logout</button>
+    </form>
+
   </body>
 </html>

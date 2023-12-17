@@ -1,0 +1,99 @@
+<!-- LISTS ALL THE TOPICS AND DISPLAYS THEM -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TopicHub Topics</title>
+    <link rel="stylesheet" type="text/css" href="/authentication.css" />
+    <script>
+
+      // Function to hide the flash message after 3500 milliseconds (3.5 seconds)
+      setTimeout(function () {
+        var alertElement = document.querySelector(".alert-success");
+        if (alertElement) {
+          alertElement.style.display = "none";
+        }
+      }, 3500);
+
+      // Function to handle topic filtering
+      function filterTopics() {
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById("topicSearchInput");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("topicList");
+        li = ul.getElementsByClassName("post-item");
+
+        for (i = 0; i < li.length; i++) {
+          a = li[i].getElementsByClassName("post-header")[0];
+          txtValue = a.textContent || a.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+          } else {
+            li[i].style.display = "none";
+          }
+        }
+      }
+
+    </script>
+  </head>
+  <body>
+    <!-- Display success message -->
+    <% if (successMessage && successMessage.length > 0) { %>
+    <div class="alert-success"><%= successMessage %></div>
+    <% } %>
+
+    <!-- Display error message -->
+    <% if (errorMessage && errorMessage.length > 0) { %>
+    <div class="alert"><%= errorMessage %></div>
+    <% } %>
+
+    <h1 class="post-title">All Topics</h1>
+    <!-- Search bar -->
+    <input
+      type="text"
+      id="topicSearchInput"
+      onkeyup="filterTopics()"
+      placeholder="Search for topics"
+    />
+
+    <!-- Loops through each topic in the topics array and displays their respective image icon,name and description -->
+    <ul id="topicList" class="post-list">
+
+      <% topics.forEach(topic => { %>
+      <div class="post-item">
+
+        <img
+          src="/images/<%= topic.topic_name %>_icon.png"
+          alt="Topic Icon"
+          class="topic-image"
+        />
+
+        <div class="post-header"><%= topic.topic_name %></div>
+
+        <p class="post-info">
+          <strong></strong> <%= topic.topic_description %>
+        </p>
+        <!-- Join button for users that are not a part of the topic but if they are the button gets disabled and changes to "Joined"-->
+        <form class="join-topic" action="/join-topic" method="post">
+
+          <input type="hidden" name="topic_id" value="<%= topic.topic_id %>" />
+          <% if (topic.isMember) { %>
+          <button type="button" disabled>Joined</button>
+          <% } else { %>
+          <button type="submit">Join topic</button>
+          <% } %>
+
+        </form>
+
+      </div>
+      <% }) %>
+
+    </ul>
+
+    <a href="/" class="redirect-link">Return to home</a>
+
+    <form action="/logout" method="get">
+      <button class="logout" type="submit">Logout</button>
+    </form>
+
+  </body>
+</html>

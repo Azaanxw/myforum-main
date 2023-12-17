@@ -1,0 +1,102 @@
+<!-- LISTS ALL THE POSTS AND DISPLAYS THEM -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TopicHub Posts</title>
+    <link rel="stylesheet" type="text/css" href="/authentication.css" />
+    <script>
+
+      // Function to hide the flash message after 3500 milliseconds (3.5 seconds)
+      setTimeout(function () {
+        var alertElement = document.querySelector(".alert-success");
+        if (alertElement) {
+          alertElement.style.display = "none";
+        }
+      }, 3500);
+
+      // Function to handle post filtering
+      function filterPosts() {
+        var input, filter, ul, li, p, i, txtValue;
+        input = document.getElementById("postSearchInput");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("postList");
+        li = ul.getElementsByClassName("post-item");
+
+        for (i = 0; i < li.length; i++) {
+          p = li[i].getElementsByClassName("post-info")[2]; // Change the index to match the post message
+          txtValue = p.textContent || p.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+          } else {
+            li[i].style.display = "none";
+          }
+        }
+      }
+
+    </script>
+  </head>
+  <body>
+    <!-- Display success message -->
+    <% if (successMessage && successMessage.length > 0) { %>
+    <div class="alert-success"><%= successMessage %></div>
+    <% } %>
+
+    <!-- Display error message -->
+    <% if (errorMessage && errorMessage.length > 0) { %>
+    <div class="alert"><%= errorMessage %></div>
+    <% } %>
+
+    <h1 class="post-title">All Posts</h1>
+    <!-- Search bar -->
+    <input
+      type="text"
+      id="postSearchInput"
+      onkeyup="filterPosts()"
+      placeholder="Search for posts by message"
+    />
+
+    <!--Sorts posts in descending order based on date and displays them with their corresponding date,user and message-->
+    <ul id="postList" class="post-list">
+
+      <% sortedPosts = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+      sortedPosts.forEach(post => { %>
+      <li class="post-item">
+
+        <div class="post-header">
+          <img
+            src="/images/<%= post.topic_name %>_icon.png"
+            alt="<%= post.topic_name %> icon"/>
+          <%= post.topic_name %>
+        </div>
+
+        <p class="post-info">
+
+          <img src="/images/date_icon.png" alt="Date icon" /><strong
+            >Date:</strong>
+          <%= new Date(post.date).toLocaleString('en-US', { weekday: 'long',
+          year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric',
+          minute: 'numeric', second: 'numeric', timeZoneName: 'short' }) %>
+        </p>
+
+        <p class="post-info">
+          <img src="/images/user_icon.png" alt="User icon" /><strong
+            >User:</strong>
+          <%= post.username %>
+        </p>
+
+        <p class="post-info">
+          <img src="/images/message_icon.png" alt="Message icon" /><strong
+            >Message:</strong>
+          <%= post.text %>
+        </p>
+        
+      </li>
+      <% }) %>
+    </ul>
+
+    <a href="/" class="redirect-link">Return to home</a>
+    <form action="/logout" method="get">
+      <button class="logout" type="submit">Logout</button>
+    </form>
+  </body>
+</html>

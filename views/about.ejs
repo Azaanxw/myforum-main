@@ -1,14 +1,48 @@
- <!-- ABOUT ME PAGE WHICH SHOWS WHAT THE FORUM APP IS ABOUT -->
-<!doctype html>
+<!-- ABOUT ME PAGE WHICH SHOWS WHAT THE FORUM APP IS ABOUT -->
+<!DOCTYPE html>
 <html>
   <head>
-    <title>Welcome to My Forum</title>
-    <link rel="stylesheet"  type="text/css" href="main.css" />
+    <title>TopicHub About</title>
+    <link rel="stylesheet" type="text/css" href="/authentication.css" />
   </head>
   <body>
-    <h1>Welcome to the about page for My Forum</h1>
+    <h1>About TopicHub</h1>
+
+    <div class="about-container">
+
+      <h2>What is this website about?</h2>
+
+      <p>
+        This website is a forum application called TopicHub where users can
+        create posts on certain topics. Users must be a member of the topic
+        before being able to post in it.
+      </p>
+
+      <p>
+        It also allows you to search posts,users and topics and express your
+        opinions on given topics.
+      </p>
+      
+      <h3>Key features include:</h3>
+
+      <ul class="features-list">
+
+        <li>Engage in topic-centric discussions.</li>
+        <li>Search for users, topics, and posts.</li>
+        <li>Membership-based posting for quality content.</li>
+        <li>
+          Gain credits based on the number of posts you contribute to a given
+          topic.
+        </li>
+
+      </ul>
+    </div>
+
+    <a href="/" class="redirect-link">Return to home</a>
+
     <form action="/logout" method="get">
-      <button type="submit">Logout</button>
-  </form>
+      <button class="logout" type="submit">Logout</button>
+    </form>
+
   </body>
 </html>

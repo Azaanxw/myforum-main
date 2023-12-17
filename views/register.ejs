@@ -1,107 +1,154 @@
 <!-- REGISTER PAGE WHERE USERS CAN REGISTER FOR AN ACCOUNT-->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="authentication.css">
-    <title>Forum Registration</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/authentication.css" />
+    <title>TopicHub Registration</title>
     <script>
-        // function that checks if the register form is valid before passing it to be added to the database
-        function validateForm() {
 
-            // grabs all the values from the input boxes
-            var firstName = document.getElementById("firstName").value;
-            var lastName = document.getElementById("lastName").value;
-            var email = document.getElementById("email").value;
-            var confirmEmail = document.getElementById("confirmEmail").value;
-            var password = document.getElementById("new_password").value;
-            var confirmPassword = document.getElementById("confirmPassword").value;
+      // Function to hide the flash message after 3500 milliseconds (3.5 seconds)
+      setTimeout(function () {
+        var alertElement = document.querySelector(".alert-success");
+        if (alertElement) {
+          alertElement.style.display = "none";
+        }
+      }, 3500);
 
-            // Checks to see if first name is 1 string only
-            if (!isValidSingleString(firstName)) {
-                alert("Please enter a valid First Name.");
-                return false;
-            }
+      // function that checks if the register form is valid before passing it to be added to the database
+      function validateForm() {
+        // grabs all the values from the input boxes
+        var firstName = document.getElementById("firstName").value;
+        var lastName = document.getElementById("lastName").value;
+        var email = document.getElementById("email").value;
+        var confirmEmail = document.getElementById("confirmEmail").value;
+        var password = document.getElementById("new_password").value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
 
-            // Checks to see if last name is 1 string only
-            if (!isValidSingleString(lastName)) {
-                alert("Please enter a valid Last Name.");
-                return false;
-            }
-
-            // Checks to see if email is valid
-            if (!isValidEmail(email)) {
-                alert("Please enter a valid email address.");
-                return false;
-            }
-
-            // Checks if email and confirm email match
-            if (email !== confirmEmail) {
-                alert("Email and Confirm Email must match.");
-                return false;
-            }
-
-            // Checks if password and confirm password match
-            if (password !== confirmPassword) {
-                alert("Password and Confirm Password must match.");
-                return false;
-            }
-
-            // returns true if all checks are passed
-            return true;
+        // Checks to see if first name is 1 string only
+        if (!isValidSingleString(firstName)) {
+          alert("Please enter a valid First Name.");
+          return false;
         }
 
-        function isValidSingleString(value) {  // checks to see if value string contains only alphabets and no special characters
-            return /^[a-zA-Z]+$/.test(value);
+        // Checks to see if last name is 1 string only
+        if (!isValidSingleString(lastName)) {
+          alert("Please enter a valid Last Name.");
+          return false;
         }
 
-        function isValidEmail(value) {  // checks to see if email is valid by meeting the email pattern 
-            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+        // Checks to see if email is valid
+        if (!isValidEmail(email)) {
+          alert("Please enter a valid email address.");
+          return false;
         }
+
+        // Checks if email and confirm email match
+        if (email !== confirmEmail) {
+          alert("Email and Confirm Email must match.");
+          return false;
+        }
+
+        // Checks if password and confirm password match
+        if (password !== confirmPassword) {
+          alert("Password and Confirm Password must match.");
+          return false;
+        }
+
+        // returns true if all checks are passed
+        return true;
+      }
+
+      function isValidSingleString(value) {
+        // checks to see if value string contains only alphabets and no special characters
+        return /^[a-zA-Z]+$/.test(value);
+      }
+
+      function isValidEmail(value) {
+        // checks to see if email is valid by meeting the email pattern
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+      }
+
     </script>
+  </head>
+  <body>
+    <h1>Register here for the TopicHub app!</h1>
 
-</head>
-<body>
+    <!-- Display success message -->
+    <% if (successMessage && successMessage.length > 0) { %>
+    <div class="alert-success"><%= successMessage %></div>
+    <% } %>
 
-    <h1>Register here for the forum app!</h1>
+    <!-- Display error message -->
+    <% if (errorMessage && errorMessage.length > 0) { %>
+    <div class="alert"><%= errorMessage %></div>
+    <% } %>
 
     <!-- Registration form -->
     <form action="/register" method="post" onsubmit="return validateForm();">
+      <!-- Username -->
+      <label for="username"
+        ><img
+          src="images/username_icon.png"
+          alt="username_icon"
+        />Username:</label
+      >
+      <input type="text" id="username" name="username" required />
+      <!-- First Name -->
+      <label for="firstName"
+        ><img src="images/name_icon.png" alt="firstName_icon" />First
+        Name:</label
+      >
+      <input type="text" id="firstName" name="firstName" required />
 
-        <!-- Username -->
-        <label for="username"><img src="images/username_icon.png" alt="username_icon">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <!-- First Name -->
-        <label for="firstName"><img src="images/name_icon.png" alt="firstName_icon">First Name:</label>
-        <input type="text" id="firstName" name="firstName" required>
-        
-        <!-- Last Name -->
-        <label for="lastName"><img src="images/name_icon.png" alt="lastName_icon">Last Name:</label>
-        <input type="text" id="lastName" name="lastName" required>
+      <!-- Last Name -->
+      <label for="lastName"
+        ><img src="images/name_icon.png" alt="lastName_icon" />Last Name:</label
+      >
+      <input type="text" id="lastName" name="lastName" required />
 
-        <!-- Email -->
-        <label for="email"><img src="images/email_icon.png" alt="email_icon">Email:</label>
-        <input type="email" id="email" name="email" required>
+      <!-- Email -->
+      <label for="email"
+        ><img src="images/email_icon.png" alt="email_icon" />Email:</label
+      >
+      <input type="email" id="email" name="email" required />
 
-        <!-- Confirm Email -->
-        <label for="confirmEmail"><img src="images/email_icon.png" alt="email_icon">Confirm Email:</label>
-        <input type="email" id="confirmEmail" name="confirmEmail" required>
+      <!-- Confirm Email -->
+      <label for="confirmEmail"
+        ><img src="images/email_icon.png" alt="email_icon" />Confirm
+        Email:</label
+      >
+      <input type="email" id="confirmEmail" name="confirmEmail" required />
 
-        <!-- Password -->
-        <label for="password"><img src="images/password_icon.png" alt="password_icon">Password:</label>
-        <input type="password" id="new_password" name="password" required>
+      <!-- Password -->
+      <label for="password"
+        ><img
+          src="images/password_icon.png"
+          alt="password_icon"
+        />Password:</label
+      >
+      <input type="password" id="new_password" name="password" required />
 
-        <!-- Confirm Password -->
-        <label for="confirmPassword"><img src="images/password_icon.png" alt="password_icon">Confirm Password:</label>
-        <input type="password" id="confirmPassword" name="confirmPassword" required>
+      <!-- Confirm Password -->
+      <label for="confirmPassword"
+        ><img src="images/password_icon.png" alt="password_icon" />Confirm
+        Password:</label
+      >
+      <input
+        type="password"
+        id="confirmPassword"
+        name="confirmPassword"
+        required
+      />
 
-        <!-- Submit Button -->
-        <button type="submit">Register</button>
+      <!-- Submit Button -->
+      <button type="submit">Register</button>
     </form>
 
     <!-- Back to login link -->
-    <a href="/login">Already got an account? Login here</a>
-    
-</body>
+    <a href="/login" class="redirect-link"
+      >Already got an account? Login here</a
+    >
+  </body>
 </html>

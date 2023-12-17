@@ -1,0 +1,75 @@
+<!-- LISTS ALL THE USERS AND DISPLAYS THEM -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TopicHub Users</title>
+    <link rel="stylesheet" type="text/css" href="/authentication.css" />
+    <script>
+        // Function to hide the flash message after 3500 milliseconds (3.5 seconds)
+        setTimeout(function () {
+            var alertElement = document.querySelector('.alert-success');
+            if (alertElement) {
+                alertElement.style.display = 'none';
+            }
+        }, 3500);
+
+        // Function to handle user filtering
+        function filterUsers() {
+            var input, filter, userList, userContainers, username, i, txtValue;
+            input = document.getElementById('userSearchInput');
+            filter = input.value.toUpperCase();
+            userList = document.querySelector('.user-list');
+            userContainers = userList.getElementsByClassName('user-container');
+
+            for (i = 0; i < userContainers.length; i++) {
+                username = userContainers[i].getElementsByClassName('user-details')[0];
+                txtValue = username.textContent || username.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    userContainers[i].style.display = '';
+                } else {
+                    userContainers[i].style.display = 'none';
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- Display success message -->
+    <% if (successMessage && successMessage.length > 0) { %>
+    <div class="alert-success">
+        <%= successMessage %>
+    </div>
+    <% } %>
+
+    <!-- Display error message -->
+    <% if (errorMessage && errorMessage.length > 0) { %>
+    <div class="alert">
+        <%= errorMessage %>
+    </div>
+    <% } %>
+
+    <h1 class="user-title">All Users</h1>
+    <!-- Search bar for user -->
+    <input type="text" id="userSearchInput" onkeyup="filterUsers()" placeholder="Search for users by username">
+    <div class="user-list-wrapper">
+        <div class="user-list">
+            <% users.reverse().forEach(user => { %>
+                <a href="/user/<%= user.user_id %>" class="user-container">
+                    <img src="/images/user_icon.png">
+                    <div class="user-details"><strong>Username:</strong> <%= user.username %></div>
+                </a>
+            <% }) %>
+        </div>
+    </div>
+
+    <div class="other-links">
+    <a href="/" class="redirect-link" >Return to home</a>
+
+    <form action="/logout" method="get">
+        <button class="logout" type="submit">Logout</button>
+    </form>
+    
+    </div>
+
+</body>
+</html>
