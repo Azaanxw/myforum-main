@@ -1,8 +1,8 @@
 CREATE DATABASE IF NOT EXISTS `forumapp`;
 USE `forumapp`;
 
-CREATE USER IF NOT EXISTS 'myforumappuser'@'localhost' IDENTIFIED WITH mysql_native_password BY 'app2027';
-GRANT ALL PRIVILEGES ON myforum.* TO 'appuser'@'localhost';
+CREATE USER IF NOT EXISTS 'appuser'@'localhost' IDENTIFIED WITH mysql_native_password BY 'app2027';
+GRANT ALL PRIVILEGES ON forumapp.* TO 'appuser'@'localhost';
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
@@ -50,5 +50,4 @@ CREATE TABLE `post` (
   CONSTRAINT `post_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
   CONSTRAINT `post_ibfk_2` FOREIGN KEY (`topic_id`) REFERENCES `topic` (`topic_id`)
 );
-
 
